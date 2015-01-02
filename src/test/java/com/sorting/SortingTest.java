@@ -62,4 +62,10 @@ public class SortingTest {
         unsorted = Sorting.insertionSort(unsorted);
         assertArrayEquals(sorted, unsorted);
     }    
+
+    @Test
+    public void testQuickSort() {
+        unsorted = Sorting.quickSort(unsorted,0,unsorted.length-1);
+        assertArrayEquals(sorted, unsorted);
+    }    
 }

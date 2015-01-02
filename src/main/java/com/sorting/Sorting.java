@@ -1,5 +1,7 @@
 package com.sorting;
 
+import java.util.Arrays;
+
 public class Sorting 
 {
     public static int[] bubbleSort(int[] a)
@@ -69,5 +71,57 @@ public class Sorting
             }
         }
         return a;
+    }
+    
+    public static int[] quickSort(int[] a, int low, int high)
+    {
+        if (a.length<=1)
+            return a;
+        
+        int pivot = partition(a, low, high);
+        
+        if (low<pivot-1)
+            quickSort(a, low, pivot-1);
+        
+        if (high>pivot)
+            quickSort(a, pivot, high);
+            
+        return a;
+    }
+    
+    private static int partition(int[] a, int left, int right)
+    {
+        /*
+        * Pick the median of the lowest, highest and middle index values
+        * Provides better performance in certain instances
+        */
+        int pivot;
+        int midIndex = (left + right - 1)/2;
+        if (a[left] <= a[midIndex] && a[right] >= a[midIndex])
+            pivot = a[midIndex];
+        else if (a[left] <= a[right] && a[left] >= a[midIndex])
+            pivot = a[left];
+        else
+            pivot = a[right];
+        
+        while (left < right)
+        {
+            while (a[left] < pivot)
+                left++;
+            
+            while (a[right] > pivot)
+                right--;
+            
+            if (left <= right)
+            {
+                int swap = a[left];
+                a[left] = a[right];
+                a[right] = swap;
+                
+                left++;
+                right--;
+            }
+        }
+        return left;
     }
 }
