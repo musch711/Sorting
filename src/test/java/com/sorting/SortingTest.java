@@ -14,9 +14,11 @@ import static org.junit.Assert.*;
 public class SortingTest {
     
     private static Integer[] unsortedIntegers;
-    private static Integer[] sortedIntegers;
+    private static Integer[] sortedAscendingIntegers;
+    private static Integer[] sortedDescendingIntegers;
     private static String[] unsortedStrings;
-    private static String[] sortedStrings;
+    private static String[] sortedAscendingStrings;
+    private static String[] sortedDescendingStrings;
     
     
     public SortingTest() {
@@ -24,8 +26,10 @@ public class SortingTest {
     
     @BeforeClass
     public static void setUpClass() {
-        sortedIntegers = new Integer[] {2,4,5,7,8,9,20,23,54,89};
-        sortedStrings = new String[] {"Alpha","Beta","Delta","Gamma",};
+        sortedAscendingIntegers = new Integer[] {2,4,5,7,8,9,20,23,54,89};
+        sortedDescendingIntegers = new Integer[] {89,54,23,20,9,8,7,5,4,2};
+        sortedAscendingStrings = new String[] {"Alpha","Beta","Delta","Gamma",};
+        sortedDescendingStrings = new String[] {"Gamma","Delta","Beta","Alpha"};
     }
     
     @AfterClass
@@ -46,23 +50,53 @@ public class SortingTest {
     public void testBubbleSort() {
         SortingAlgorithm bubbleSort = new BubbleSort();
         
-        bubbleSort.sort(unsortedIntegers);
-        assertArrayEquals(sortedIntegers, unsortedIntegers);
+        bubbleSort.sortAscending(unsortedIntegers);
+        assertArrayEquals(sortedAscendingIntegers, unsortedIntegers);
         
-        bubbleSort.sort(unsortedStrings);
-        assertArrayEquals(sortedStrings, unsortedStrings);
+        bubbleSort.sortAscending(unsortedStrings);
+        assertArrayEquals(sortedAscendingStrings, unsortedStrings);
+        
+        bubbleSort.sortDescending(unsortedIntegers);
+        assertArrayEquals(sortedDescendingIntegers, unsortedIntegers);
+        
+        bubbleSort.sortDescending(unsortedStrings);
+        assertArrayEquals(sortedDescendingStrings, unsortedStrings);
     }
     
     @Test
     public void testOptimizedBubbleSort() {
         SortingAlgorithm optimizedBubbleSort = new BubbleSort();
         
-        optimizedBubbleSort.sort(unsortedIntegers);
-        assertArrayEquals(sortedIntegers, unsortedIntegers);
+        optimizedBubbleSort.sortAscending(unsortedIntegers);
+        assertArrayEquals(sortedAscendingIntegers, unsortedIntegers);
         
-        optimizedBubbleSort.sort(unsortedStrings);
-        assertArrayEquals(sortedStrings, unsortedStrings);
+        optimizedBubbleSort.sortAscending(unsortedStrings);
+        assertArrayEquals(sortedAscendingStrings, unsortedStrings);
+        
+        optimizedBubbleSort.sortDescending(unsortedIntegers);
+        assertArrayEquals(sortedDescendingIntegers, unsortedIntegers);
+        
+        optimizedBubbleSort.sortDescending(unsortedStrings);
+        assertArrayEquals(sortedDescendingStrings, unsortedStrings);        
+    }
+    
+    @Test
+    public void testInsertionSort() {
+        SortingAlgorithm insertionSort = new InsertionSort();
+        
+        insertionSort.sortAscending(unsortedIntegers);
+        assertArrayEquals(sortedAscendingIntegers, unsortedIntegers);
+        
+        insertionSort.sortAscending(unsortedStrings);
+        assertArrayEquals(sortedAscendingStrings, unsortedStrings);
+        
+        insertionSort.sortDescending(unsortedIntegers);
+        assertArrayEquals(sortedDescendingIntegers, unsortedIntegers);
+        
+        insertionSort.sortDescending(unsortedStrings);
+        assertArrayEquals(sortedDescendingStrings, unsortedStrings);         
     }    
+    
     
             
 /*
