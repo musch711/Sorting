@@ -1,13 +1,5 @@
 package com.sorting;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-import com.sorting.Sorting;
-import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,15 +13,19 @@ import static org.junit.Assert.*;
  */
 public class SortingTest {
     
-    private static int[] unsorted;
-    private static int[] sorted;
+    private static Integer[] unsortedIntegers;
+    private static Integer[] sortedIntegers;
+    private static String[] unsortedStrings;
+    private static String[] sortedStrings;
+    
     
     public SortingTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
-        sorted = new int[] {2,4,5,7,8,9,20,23,54,89};
+        sortedIntegers = new Integer[] {2,4,5,7,8,9,20,23,54,89};
+        sortedStrings = new String[] {"Alpha","Beta","Delta","Gamma",};
     }
     
     @AfterClass
@@ -38,34 +34,42 @@ public class SortingTest {
     
     @Before
     public void setUp() {
-        unsorted = new int[] {4,5,2,7,8,9,23,54,89,20};
+        unsortedIntegers = new Integer[] {4,5,2,7,8,9,23,54,89,20};
+        unsortedStrings = new String[] {"Beta","Alpha","Delta","Gamma"};
     }
     
     @After
     public void tearDown() {
     }
-
+    
     @Test
     public void testBubbleSort() {
-        unsorted = Sorting.bubbleSort(unsorted);
-        assertArrayEquals(sorted, unsorted);
+        SortingAlgorithm bubbleSort = new BubbleSort();
+        
+        bubbleSort.sort(unsortedIntegers);
+        assertArrayEquals(sortedIntegers, unsortedIntegers);
+        
+        bubbleSort.sort(unsortedStrings);
+        assertArrayEquals(sortedStrings, unsortedStrings);
     }
     
     @Test
     public void testOptimizedBubbleSort() {
-        unsorted = Sorting.optimizedBubbleSort(unsorted);
-        assertArrayEquals(sorted, unsorted);
-    }
-    
-    @Test
-    public void testInsertionSort() {
-        unsorted = Sorting.insertionSort(unsorted);
-        assertArrayEquals(sorted, unsorted);
+        SortingAlgorithm optimizedBubbleSort = new BubbleSort();
+        
+        optimizedBubbleSort.sort(unsortedIntegers);
+        assertArrayEquals(sortedIntegers, unsortedIntegers);
+        
+        optimizedBubbleSort.sort(unsortedStrings);
+        assertArrayEquals(sortedStrings, unsortedStrings);
     }    
-
+    
+            
+/*
     @Test
     public void testQuickSort() {
-        unsorted = Sorting.quickSort(unsorted,0,unsorted.length-1);
+        Sorting.quickSort(unsorted,0,unsorted.length-1);
         assertArrayEquals(sorted, unsorted);
-    }    
+    }
+*/    
 }

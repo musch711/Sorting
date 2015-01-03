@@ -1,59 +1,7 @@
 package com.sorting;
 
-import java.util.Arrays;
-
 public class Sorting 
-{
-    public static int[] bubbleSort(int[] a)
-    {
-        boolean swapped = true;
-        
-        if (a.length<=1)
-            return a;
-        
-        while (swapped==true)
-        {
-            swapped = false;
-            for (int i=1; i<a.length; i++)
-            {
-                if (a[i]<a[i-1])
-                {
-                    int swap = a[i];
-                    a[i] = a[i-1];
-                    a[i-1] = swap;
-                    swapped = true;
-                }
-            }
-        }
-        return a;
-    }
-    
-    public static int[] optimizedBubbleSort(int[] a)
-    {
-        boolean swapped = true;
-        int length = a.length;
-        
-        if (a.length<=1)
-            return a;
-        
-        while (swapped==true)
-        {
-            swapped = false;
-            for (int i=1; i<length; i++)
-            {
-                if (a[i]<a[i-1])
-                {
-                    int swap = a[i];
-                    a[i] = a[i-1];
-                    a[i-1] = swap;
-                    swapped = true;
-                }
-            }
-            length--;
-        }
-        return a;
-    }
-    
+{    
     public static int[] insertionSort(int[] a)
     {
         if (a.length<=1)
@@ -123,5 +71,48 @@ public class Sorting
             }
         }
         return left;
+    }
+    
+    public static int[] mergeSort(int[] a)
+    {
+        if (a.length<=1)
+            return a;
+        
+        int middle = (a.length - 1) / 2;
+        int[] left = new int[middle];
+        int[] right = new int[a.length-middle];
+        
+        for (int i = 0; i < middle; i++)
+            left[i] = a[i];
+        
+        for (int i = 0; i < a.length; i++)
+            right[i] = a[i];
+        
+        mergeSort(left);
+        mergeSort(right);
+        
+        return merge(left,right);
+    }
+    
+    private static int[] merge(int[] a, int[] b)
+    {
+        int[] result = new int[a.length+b.length];
+        
+        while(a.length>0&&b.length>0)
+        {
+            
+        }
+        
+        while(a.length>0)
+        {
+            
+        }
+        
+        while(b.length>0)
+        {
+            
+        }
+        
+        return result;
     }
 }
