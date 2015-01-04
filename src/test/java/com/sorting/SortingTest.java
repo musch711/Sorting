@@ -97,13 +97,20 @@ public class SortingTest {
         assertArrayEquals(sortedDescendingStrings, unsortedStrings);         
     }    
     
-    
-            
-/*
     @Test
     public void testQuickSort() {
-        Sorting.quickSort(unsorted,0,unsorted.length-1);
-        assertArrayEquals(sorted, unsorted);
-    }
-*/    
+        SortingAlgorithm quickSort = new QuickSort();
+        
+        quickSort.sortAscending(unsortedIntegers);
+        assertArrayEquals(sortedAscendingIntegers, unsortedIntegers);
+        
+        quickSort.sortAscending(unsortedStrings);
+        assertArrayEquals(sortedAscendingStrings, unsortedStrings);
+        
+        quickSort.sortDescending(unsortedIntegers);
+        assertArrayEquals(sortedDescendingIntegers, unsortedIntegers);
+        
+        quickSort.sortDescending(unsortedStrings);
+        assertArrayEquals(sortedDescendingStrings, unsortedStrings);         
+    } 
 }
