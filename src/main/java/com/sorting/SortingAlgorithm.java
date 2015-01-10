@@ -8,7 +8,7 @@ public abstract class SortingAlgorithm
         values[a] = values[b];
         values[b] = temp;
     }
-    
+
     public abstract <T extends Comparable<T>> T[] sortAscending(T[] values);
     
     public abstract <T extends Comparable<T>> T[] sortDescending(T[] values);

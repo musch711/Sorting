@@ -112,5 +112,22 @@ public class SortingTest {
         
         quickSort.sortDescending(unsortedStrings);
         assertArrayEquals(sortedDescendingStrings, unsortedStrings);         
+    }
+    
+    @Test
+    public void testMergeSort() {
+        SortingAlgorithm mergeSort = new MergeSort();
+        
+        mergeSort.sortAscending(unsortedIntegers);
+        assertArrayEquals(sortedAscendingIntegers, unsortedIntegers);
+        
+        mergeSort.sortAscending(unsortedStrings);
+        assertArrayEquals(sortedAscendingStrings, unsortedStrings);
+        
+        mergeSort.sortDescending(unsortedIntegers);
+        assertArrayEquals(sortedDescendingIntegers, unsortedIntegers);
+        
+        mergeSort.sortDescending(unsortedStrings);
+        assertArrayEquals(sortedDescendingStrings, unsortedStrings);         
     } 
 }

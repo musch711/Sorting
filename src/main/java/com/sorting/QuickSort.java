@@ -72,7 +72,7 @@ public class QuickSort extends SortingAlgorithm
     
     private <T extends Comparable<T>> int partitionDescending(T[] values, int left, int right)
     {
-        //int midIndex = (left + right - 1)/2;
+        int midIndex = (left + right - 1)/2;
         T pivot = values[left];
 
         while (left < right)
